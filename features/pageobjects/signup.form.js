@@ -10,9 +10,12 @@ const DOB_OK = "~Ok"
 const DOB_CANCEL = "~Cancel"
 const TERMS_CHECKBOX = "//android.widget.CheckBox[@index=11]"
 const NEXT_BUTTON = "~Next"
+const TITLE = "~Join Spring Health"
+
 class SignUpForm{
 
     get firstName(){
+        
         return $(FIRST_NAME)
     }
 
@@ -56,6 +59,10 @@ class SignUpForm{
         return $(NEXT_BUTTON)
     }
 
+    get screenTitle(){
+        return $(TITLE)
+    }
+
     async typeFirstName(){
         await this.firstName.click()
         await this.firstName.setValue("Taha")
@@ -88,6 +95,7 @@ class SignUpForm{
     async clickNext(){
         await this.nextBtn.click()
     }
+  
 
 }
 
