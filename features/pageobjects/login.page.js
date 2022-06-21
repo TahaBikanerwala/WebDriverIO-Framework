@@ -54,7 +54,7 @@ class LoginPage {
      */
 
     async login(username, password) {
-        // await this.wait_for_screen();
+        await this.wait_for_screen();
         
         await this.inputUsername.click();
         await this.inputUsername.setValue(username)
@@ -69,19 +69,19 @@ class LoginPage {
     }
 
     async goToSignup() {
-        // await this.wait_for_screen();
+        await this.wait_for_screen();
         await this.signUpBtn.click();
     
     }
 
-    // async wait_for_screen() {
-    //     await $(USER_NAME).waitForDisplayed({ timeout: 4000 })
-    //     await $(PASSWORD_FIELD).waitForDisplayed({ timeout: 4000 })
-    //     await $(LOGIN_BUTTON).waitForDisplayed({ timeout: 4000 })
-    //     await $(SIGNUP_BTN).waitForDisplayed({ timeout: 4000 })
-    //     await $(HELP_BTN).waitForDisplayed({ timeout: 4000 })
-    //     await $(FRGT_PASS).waitForDisplayed({ timeout: 4000 })
-    // }
+    async wait_for_screen() {
+        await $(USER_NAME).waitForDisplayed({ timeout: 4000 })
+        await $(PASSWORD_FIELD).waitForDisplayed({ timeout: 4000 })
+        await $(LOGIN_BUTTON).waitForDisplayed({ timeout: 4000 })
+        await $(SIGNUP_BTN).waitForDisplayed({ timeout: 4000 })
+        await $(HELP_BTN).waitForDisplayed({ timeout: 4000 })
+        await $(FRGT_PASS).waitForDisplayed({ timeout: 4000 })
+    }
 
 
     /**

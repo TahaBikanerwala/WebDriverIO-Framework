@@ -15,11 +15,19 @@ Given(/^I am on the login page/, async() => {
     // await loginPage.login("tahabikanerwala@gmail.com","foobarbazz")
     await loginPage.goToSignup();
     await mePlusPage.meOption.click();
+    //Check which screen is loaded
+   
     await signupForm.typeFirstName();
+     console.log(signupForm.screenTitle)
+     console.log(signupForm.screenTitle.getText())
+    let title = await signupForm.screenTitle
+    await expect(title).toHaveAttrContaining("content-desc","Join Spring Health")
+    
     await signupForm.typeLastName();
     await signupForm.selectDOB();
     await signupForm.typeEmail();
     await signupForm.clickTermsCheckbox();
+    await signupForm.clickNext();
 
     
     
