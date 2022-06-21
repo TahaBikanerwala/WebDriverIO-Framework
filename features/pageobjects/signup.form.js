@@ -87,7 +87,6 @@ class SignUpForm{
 
     async clickNext(){
         await this.nextBtn.click()
-        browser.pause(5000)
     }
 
 }
