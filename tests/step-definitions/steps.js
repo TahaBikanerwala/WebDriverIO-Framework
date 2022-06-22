@@ -2,6 +2,7 @@ import { Given, When, Then } from '@wdio/cucumber-framework';
 import LoginPage from '../screenObjects/login.screen'
 import MePlusPage from '../screenObjects/meplus.screen';
 import SignUpForm from '../screenObjects/signup.screen';
+import allureReporter from '@wdio/allure-reporter'
 
 // const pages = {
 //     login: LoginPage
@@ -28,6 +29,7 @@ Given(/^Member is on the login page$/, async() => {
 });
 
 When(/^The member logs in with incorrrect username and password$/, async() => {
+    allureReporter.addFeature('The member logs in with incorrrect username and password')
     await loginPage.login("Some Email","Some Password")
 });
 
