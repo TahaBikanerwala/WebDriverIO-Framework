@@ -1,4 +1,4 @@
-
+import CommonUtilities from '../utilities/common.functions'
 /**
  * sub page containing specific selectors and methods for a specific page
  */
@@ -10,6 +10,7 @@ const SIGNUP_BTN = "~Sign Up"
 const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
 const ERROR_BANNER = "~The user credentials were incorrect."
+const commonUtilities = new CommonUtilities();
 
 class LoginPage {
     /**
@@ -59,14 +60,16 @@ class LoginPage {
      */
 
     async login(username, password) {
-        await this.inputUsername.click();
-        await this.inputUsername.setValue("");
-        await this.inputUsername.setValue(username)
-        await browser.hideKeyboard();
-        await this.inputPassword.click();
-        await this.inputPassword.setValue("");
-        await this.inputPassword.setValue(password)
-        await browser.hideKeyboard();
+        await commonUtilities.type_in_element(this.inputUsername,username)
+        // await this.inputUsername.click();
+        // await this.inputUsername.setValue("");
+        // await this.inputUsername.setValue(username)
+        // await browser.hideKeyboard();
+        await commonUtilities.type_in_element(this.inputPassword,password);
+        // await this.inputPassword.click();
+        // await this.inputPassword.setValue("");
+        // await this.inputPassword.setValue(password)
+        // await browser.hideKeyboard();
         await this.btnSubmit.click();
     }
 

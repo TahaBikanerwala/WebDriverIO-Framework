@@ -1,3 +1,6 @@
+import {ReportAggregator, HtmlReporter} from 'wdio-html-nice-reporter';
+let reportAggregator;
+
 exports.config = {
     runner: 'local',
     port: 4723,
@@ -28,7 +31,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './features/**/*.feature'
+        './tests/features/**/*.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -65,7 +68,7 @@ exports.config = {
         platformName: 'Android',
         automationName : 'UiAutomator2',
         deviceName: 'Pixal XL API 30',
-        app:  '/home/incubyte-taha/eclipse-workspace/FrameworkWebdriverIO/features/resources/SpringHealth 2.18.0(3).apk',
+        app:  '/home/incubyte-taha/eclipse-workspace/FrameworkWebdriverIO/tests/resources/SpringHealth 2.18.0(3).apk',
         // acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -152,14 +155,48 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec',["html-nice", {
+        outputDir: './reports/html-reports/',
+        filename: 'report.html',
+        reportTitle: 'Test Report Title',
+        linkScreenshots: true,
+        //to show the report in a browser when done
+        showInBrowser: true,
+        collapseTests: false,
+        //to turn on screenshots after every test
+        useOnAfterCommandForScreenshot: false,
+
+        //to initialize the logger
+        // LOG: log4j.getLogger("default")
+    }
+    ]],
+
+    onPrepare: function (config, capabilities) {
+
+        reportAggregator = new ReportAggregator({
+            outputDir: './reports/html-reports/',
+            filename: 'master-report.html',
+            reportTitle: 'Master Report',
+            browserName : capabilities.browserName,
+            collapseTests: true
+          });
+        reportAggregator.clean() ;
+        reportAggregator = reportAggregator;
+    },
+    
+    onComplete: function(exitCode, config, capabilities, results) {
+        (async () => {
+            await reportAggregator.createReport();
+        })();
+    },
+
 
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./tests/step-definitions/steps.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
