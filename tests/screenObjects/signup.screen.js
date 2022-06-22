@@ -12,7 +12,7 @@ const TERMS_CHECKBOX = "//android.widget.CheckBox[@index=11]"
 const NEXT_BUTTON = "~Next"
 const TITLE = "~Join Spring Health"
 
-class SignUpForm{
+class SignUpScreen{
 
     get firstName(){
         
@@ -99,4 +99,4 @@ class SignUpForm{
 
 }
 
-export default SignUpForm
+export default SignUpScreen;

@@ -3,7 +3,7 @@ const ME_OPTION = "~Sign up as primary recipient"
 const ME_PLUS_OPTION = "~Sign up as spouse, partner, or dependent"
 
 
-class MePlusPage{
+class MePlusScreen{
     get meOption(){
         return $(ME_OPTION);
     }
@@ -15,4 +15,4 @@ class MePlusPage{
 
 }
 
-export default MePlusPage;
+export default MePlusScreen;
