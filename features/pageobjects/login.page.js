@@ -9,6 +9,7 @@ const NO_BTN = "~No"
 const SIGNUP_BTN = "~Sign Up"
 const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
+const ERROR_BANNER = "~The user credentials were incorrect."
 
 class LoginPage {
     /**
@@ -48,28 +49,29 @@ class LoginPage {
         return $(FRGT_PASS);
     }
 
+    get errorBanner(){
+        return $(ERROR_BANNER)
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
 
     async login(username, password) {
-        await this.wait_for_screen();
-        
+
         await this.inputUsername.click();
+        await this.inputUsername.setValue("");
         await this.inputUsername.setValue(username)
+        await browser.hideKeyboard();
         await this.inputPassword.click();
+        await this.inputPassword.setValue("");
         await this.inputPassword.setValue(password)
         await browser.hideKeyboard();
         await this.btnSubmit.click();
-        await browser.pause(3000)
-        await this.btnNo.click();
-
-
     }
 
     async goToSignup() {
-        await this.wait_for_screen();
         await this.signUpBtn.click();
     
     }
