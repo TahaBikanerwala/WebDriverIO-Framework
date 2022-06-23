@@ -1,13 +1,13 @@
 Feature: Login Feature
 
-  Scenario: As a member, I cannot log into the application
+Background:
+    Given Member is on the login screen
 
-    Given Member is on the login page
+  Scenario: As a member, I cannot log into the application
     When The member logs in with incorrrect username and password
     Then The member should get an error message displayed
 
   Scenario: As a member, I can log into the application
-    Given Member is on the login page
     When The member logs in with corrrect username and password
     Then The member should be able to reach the Home Page of the app
 

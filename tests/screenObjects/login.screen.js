@@ -11,7 +11,7 @@ const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
 const ERROR_BANNER = "~The user credentials were incorrect."
 
-class LoginPage {
+class LoginScreen {
     /**
      * define selectors using getter methods
      */
@@ -93,4 +93,4 @@ class LoginPage {
     // }
 }
 
-export default LoginPage;
+export default LoginScreen;

@@ -1,10 +1,10 @@
 
 const CARE_HEADING = "~Care"
-class HomePage{
+class HomeScreen{
     get careHeading(){
         return $(CARE_HEADING)
     }
 
 }
 
-export default HomePage;
+export default HomeScreen;
