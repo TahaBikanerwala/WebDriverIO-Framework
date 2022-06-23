@@ -7,8 +7,8 @@ config.capabilities =[
             maxInstances: 1,
             platformName: 'Android',
             automationName : 'UiAutomator2',
-            deviceName: 'Pixal XL API 30',
-            app:  join(process.cwd(),'./app/SpringHealth.apk'),
+            deviceName: 'Pixel XL API 30',
+            app:  join(process.cwd(),'./app/SpringHealth-2.17.0(10).apk'),
             
         }
     
