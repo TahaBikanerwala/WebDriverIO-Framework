@@ -1,0 +1,62 @@
+{
+  "uid" : "7da3f74a5c733e1",
+  "name" : "Then The member should get an error message displayed",
+  "fullName" : "Login Feature: As a member, I cannot log into the application.Then The member should get an error message displayed",
+  "historyId" : "85b639c845997b65808c45eb7d09dc",
+  "time" : {
+    "start" : 1655991840688,
+    "stop" : 1655991844154,
+    "duration" : 3466
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "Login Feature: As a member, I cannot log into the application"
+  }, {
+    "name" : "testClass",
+    "value" : "Login Feature: As a member, I cannot log into the application"
+  }, {
+    "name" : "testMethod",
+    "value" : "Then The member should get an error message displayed"
+  }, {
+    "name" : "package",
+    "value" : "Login Feature: As a member, I cannot log into the application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7da3f74a5c733e1.json",
+  "parameterValues" : [ "emulator-5554-11" ]
+}

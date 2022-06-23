@@ -1,0 +1,62 @@
+{
+  "uid" : "ab4f54c0d2c26e56",
+  "name" : "When The member logs in with corrrect username and password",
+  "fullName" : "Login Feature: As a member, I can log into the application.When The member logs in with corrrect username and password",
+  "historyId" : "af18264297ead28a0d9be9912d32a0e0",
+  "time" : {
+    "start" : 1655991844219,
+    "stop" : 1655991852639,
+    "duration" : 8420
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "Login Feature: As a member, I can log into the application"
+  }, {
+    "name" : "testClass",
+    "value" : "Login Feature: As a member, I can log into the application"
+  }, {
+    "name" : "testMethod",
+    "value" : "When The member logs in with corrrect username and password"
+  }, {
+    "name" : "package",
+    "value" : "Login Feature: As a member, I can log into the application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ab4f54c0d2c26e56.json",
+  "parameterValues" : [ "emulator-5554-11" ]
+}

@@ -1,0 +1,30 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Error: Can't call click on element with selector \"~No\" because element wasn't found",
+      "children" : [ {
+        "name" : "Then The member should be able to reach the Home Page of the app",
+        "uid" : "1068aaedb9ac9684",
+        "parentUid" : "9e879a569c06612c4ba18ea3f9c65355",
+        "status" : "broken",
+        "time" : {
+          "start" : 1655991852639,
+          "stop" : 1655991862179,
+          "duration" : 9540
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "emulator-5554-11" ]
+      } ],
+      "uid" : "9e879a569c06612c4ba18ea3f9c65355"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}
