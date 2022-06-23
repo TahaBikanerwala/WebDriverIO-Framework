@@ -11,7 +11,7 @@ const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
 const ERROR_BANNER = "~The user credentials were incorrect."
 
-class LoginScreen {
+class LoginPage {
     /**
      * define selectors using getter methods
      */
@@ -59,6 +59,7 @@ class LoginScreen {
      */
 
     async login(username, password) {
+
         await this.inputUsername.click();
         await this.inputUsername.setValue("");
         await this.inputUsername.setValue(username)
@@ -93,4 +94,4 @@ class LoginScreen {
     // }
 }
 
-export default LoginScreen;
+export default LoginPage;
