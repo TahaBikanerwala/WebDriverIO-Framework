@@ -14,6 +14,7 @@
         "@wdio/spec-reporter": "^7.20.0",
         "@wdio/sync": "^7.20.2",
         "@wdio/utils": "^7.20.0",
+        "allure-commandline": "^2.17.2",
         "chromedriver": "^101.0.0",
         "wdio-chromedriver-service": "^7.3.2",
         "webdriverio": "^7.20.2"
@@ -21,8 +22,5 @@
     "scripts": {
         "android-test": "./node_modules/.bin/wdio ./wdio.android.conf.js",
         "ios-test": "./node_modules/.bin/wdio ./wdio.ios.conf.js"
-    },
-    "dependencies": {
-        "allure-commandline": "^2.17.2"
     }
 }

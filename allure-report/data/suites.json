@@ -1,0 +1,149 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Login Feature: As a member, I cannot log into the application",
+    "children" : [ {
+      "name" : "Given Member is on the login screen",
+      "uid" : "5ea9a1d98c91e541",
+      "parentUid" : "5431f91fff0220783ffefa4545dfa602",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991827643,
+        "stop" : 1655991831814,
+        "duration" : 4171
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    }, {
+      "name" : "When The member logs in with incorrrect username and password",
+      "uid" : "e2b4c273f9b3f89f",
+      "parentUid" : "5431f91fff0220783ffefa4545dfa602",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991831814,
+        "stop" : 1655991840688,
+        "duration" : 8874
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    }, {
+      "name" : "Then The member should get an error message displayed",
+      "uid" : "7da3f74a5c733e1",
+      "parentUid" : "5431f91fff0220783ffefa4545dfa602",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991840688,
+        "stop" : 1655991844154,
+        "duration" : 3466
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    }, {
+      "name" : "",
+      "uid" : "8d636ca5d5ae34c7",
+      "parentUid" : "5431f91fff0220783ffefa4545dfa602",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991844154,
+        "stop" : 1655991844155,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 1,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    } ],
+    "uid" : "5431f91fff0220783ffefa4545dfa602"
+  }, {
+    "name" : "Login Feature: As a member, I can log into the application",
+    "children" : [ {
+      "name" : "Given Member is on the login screen",
+      "uid" : "417f982c45e1d6e9",
+      "parentUid" : "c0e6154a69553874943cd322cbe1b8d6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991844166,
+        "stop" : 1655991844218,
+        "duration" : 52
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    }, {
+      "name" : "When The member logs in with corrrect username and password",
+      "uid" : "ab4f54c0d2c26e56",
+      "parentUid" : "c0e6154a69553874943cd322cbe1b8d6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991844219,
+        "stop" : 1655991852639,
+        "duration" : 8420
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    }, {
+      "name" : "Then The member should be able to reach the Home Page of the app",
+      "uid" : "1068aaedb9ac9684",
+      "parentUid" : "c0e6154a69553874943cd322cbe1b8d6",
+      "status" : "broken",
+      "time" : {
+        "start" : 1655991852639,
+        "stop" : 1655991862179,
+        "duration" : 9540
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    }, {
+      "name" : "",
+      "uid" : "bc735e50ca97a580",
+      "parentUid" : "c0e6154a69553874943cd322cbe1b8d6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991862179,
+        "stop" : 1655991862180,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 1,
+      "retriesStatusChange" : false,
+      "parameters" : [ "emulator-5554-11" ]
+    } ],
+    "uid" : "c0e6154a69553874943cd322cbe1b8d6"
+  } ]
+}

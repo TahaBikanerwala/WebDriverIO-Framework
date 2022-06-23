@@ -1,0 +1,155 @@
+{
+  "a72f03d764ea9a643635cbea1a1859b9" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8d636ca5d5ae34c7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991844154,
+        "stop" : 1655991844155,
+        "duration" : 1
+      }
+    } ]
+  },
+  "dff8bb41f7a31e05e9d05e42f96da0a6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "417f982c45e1d6e9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991844166,
+        "stop" : 1655991844218,
+        "duration" : 52
+      }
+    } ]
+  },
+  "34759e312ac40bf3a27538f0364f4b8c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5ea9a1d98c91e541",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991827643,
+        "stop" : 1655991831814,
+        "duration" : 4171
+      }
+    } ]
+  },
+  "af18264297ead28a0d9be9912d32a0e0" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ab4f54c0d2c26e56",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991844219,
+        "stop" : 1655991852639,
+        "duration" : 8420
+      }
+    } ]
+  },
+  "42fb48a626554ec2488cc8dc3e52e6e3" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bc735e50ca97a580",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991862179,
+        "stop" : 1655991862180,
+        "duration" : 1
+      }
+    } ]
+  },
+  "e9f3a3eb74a2b38034b73b255648bf4f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "1068aaedb9ac9684",
+      "status" : "broken",
+      "statusDetails" : "Error: Can't call click on element with selector \"~No\" because element wasn't found",
+      "time" : {
+        "start" : 1655991852639,
+        "stop" : 1655991862179,
+        "duration" : 9540
+      }
+    } ]
+  },
+  "85b639c845997b65808c45eb7d09dc" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "7da3f74a5c733e1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991840688,
+        "stop" : 1655991844154,
+        "duration" : 3466
+      }
+    } ]
+  },
+  "dcb879a952f54d153003e1da9813f9ca" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e2b4c273f9b3f89f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1655991831814,
+        "stop" : 1655991840688,
+        "duration" : 8874
+      }
+    } ]
+  }
+}

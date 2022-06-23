@@ -1,0 +1,81 @@
+[ {
+  "uid" : "e2b4c273f9b3f89f",
+  "name" : "When The member logs in with incorrrect username and password",
+  "time" : {
+    "start" : 1655991831814,
+    "stop" : 1655991840688,
+    "duration" : 8874
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ab4f54c0d2c26e56",
+  "name" : "When The member logs in with corrrect username and password",
+  "time" : {
+    "start" : 1655991844219,
+    "stop" : 1655991852639,
+    "duration" : 8420
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bc735e50ca97a580",
+  "name" : "",
+  "time" : {
+    "start" : 1655991862179,
+    "stop" : 1655991862180,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8d636ca5d5ae34c7",
+  "name" : "",
+  "time" : {
+    "start" : 1655991844154,
+    "stop" : 1655991844155,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7da3f74a5c733e1",
+  "name" : "Then The member should get an error message displayed",
+  "time" : {
+    "start" : 1655991840688,
+    "stop" : 1655991844154,
+    "duration" : 3466
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "417f982c45e1d6e9",
+  "name" : "Given Member is on the login screen",
+  "time" : {
+    "start" : 1655991844166,
+    "stop" : 1655991844218,
+    "duration" : 52
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1068aaedb9ac9684",
+  "name" : "Then The member should be able to reach the Home Page of the app",
+  "time" : {
+    "start" : 1655991852639,
+    "stop" : 1655991862179,
+    "duration" : 9540
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "5ea9a1d98c91e541",
+  "name" : "Given Member is on the login screen",
+  "time" : {
+    "start" : 1655991827643,
+    "stop" : 1655991831814,
+    "duration" : 4171
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
