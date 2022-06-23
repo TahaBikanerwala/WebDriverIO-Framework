@@ -164,7 +164,7 @@ exports.config = {
         showInBrowser: true,
         collapseTests: false,
         //to turn on screenshots after every test
-        useOnAfterCommandForScreenshot: false,
+        useOnAfterCommandForScreenshot: true,
 
         //to initialize the logger
         // LOG: log4j.getLogger("default")
@@ -177,11 +177,16 @@ exports.config = {
             outputDir: './reports/html-reports/',
             filename: 'master-report.html',
             reportTitle: 'Master Report',
-            browserName : capabilities.browserName,
+            browserName: capabilities.browserName,
+            appName: capabilities.appName,
+            // automationName: capabilities.automationName,
+            // platformName: capabilities.platformName,
+            // deviceName: capabilities.deviceName,
+            // app: capabilities.app,
             collapseTests: true
           });
         reportAggregator.clean() ;
-        reportAggregator = reportAggregator;
+        // reportAggregator = reportAggregator;
     },
     
     onComplete: function(exitCode, config, capabilities, results) {

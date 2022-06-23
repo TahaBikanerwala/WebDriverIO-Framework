@@ -15,4 +15,4 @@ class MePlusScreen{
 
 }
 
-export default MePlusScreen;
+export default new MePlusScreen();

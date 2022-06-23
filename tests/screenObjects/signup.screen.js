@@ -99,4 +99,4 @@ class SignUpScreen{
 
 }
 
-export default SignUpScreen;
+export default new SignUpScreen();

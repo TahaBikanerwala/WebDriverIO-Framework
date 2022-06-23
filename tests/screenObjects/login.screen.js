@@ -96,4 +96,4 @@ class LoginScreen {
     // }
 }
 
-export default LoginScreen;
+export default new LoginScreen();
