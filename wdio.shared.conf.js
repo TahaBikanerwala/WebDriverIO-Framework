@@ -136,7 +136,50 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
+<<<<<<< HEAD:wdio.conf.js
+    reporters: ['spec',["html-nice", {
+        outputDir: './reports/html-reports/',
+        filename: 'report.html',
+        reportTitle: 'Test Report Title',
+        linkScreenshots: true,
+        //to show the report in a browser when done
+        showInBrowser: true,
+        collapseTests: false,
+        //to turn on screenshots after every test
+        useOnAfterCommandForScreenshot: true,
+
+        //to initialize the logger
+        // LOG: log4j.getLogger("default")
+    }
+    ]],
+
+    onPrepare: function (config, capabilities) {
+
+        reportAggregator = new ReportAggregator({
+            outputDir: './reports/html-reports/',
+            filename: 'master-report.html',
+            reportTitle: 'Master Report',
+            browserName: capabilities.browserName,
+            appName: capabilities.appName,
+            // automationName: capabilities.automationName,
+            // platformName: capabilities.platformName,
+            // deviceName: capabilities.deviceName,
+            // app: capabilities.app,
+            collapseTests: true
+          });
+        reportAggregator.clean() ;
+        // reportAggregator = reportAggregator;
+    },
+    
+    onComplete: function(exitCode, config, capabilities, results) {
+        (async () => {
+            await reportAggregator.createReport();
+        })();
+    },
+
+=======
     reporters: ['spec'],
+>>>>>>> main:wdio.shared.conf.js
 
 
     //
