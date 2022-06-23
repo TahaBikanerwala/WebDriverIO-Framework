@@ -1,3 +1,4 @@
+import CommonFunctions from "../utilities/common.functions"
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -10,6 +11,7 @@ const SIGNUP_BTN = "~Sign Up"
 const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
 const ERROR_BANNER = "~The user credentials were incorrect."
+const commonFunctions = new CommonFunctions();
 
 class LoginScreen {
     /**
@@ -59,14 +61,8 @@ class LoginScreen {
      */
 
     async login(username, password) {
-        await this.inputUsername.click();
-        await this.inputUsername.setValue("");
-        await this.inputUsername.setValue(username)
-        await browser.hideKeyboard();
-        await this.inputPassword.click();
-        await this.inputPassword.setValue("");
-        await this.inputPassword.setValue(password)
-        await browser.hideKeyboard();
+        await commonFunctions.input_elements(this.inputUsername,username)
+        await commonFunctions.input_elements(this.inputPassword,password)
         await this.btnSubmit.click();
     }
 
@@ -75,22 +71,6 @@ class LoginScreen {
     
     }
 
-    async wait_for_screen() {
-        await $(USER_NAME).waitForDisplayed({ timeout: 4000 })
-        await $(PASSWORD_FIELD).waitForDisplayed({ timeout: 4000 })
-        await $(LOGIN_BUTTON).waitForDisplayed({ timeout: 4000 })
-        await $(SIGNUP_BTN).waitForDisplayed({ timeout: 4000 })
-        await $(HELP_BTN).waitForDisplayed({ timeout: 4000 })
-        await $(FRGT_PASS).waitForDisplayed({ timeout: 4000 })
-    }
-
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    // open () {
-    //     return super.open('login');
-    // }
 }
 
 export default new LoginScreen();
