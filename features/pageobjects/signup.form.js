@@ -99,8 +99,4 @@ class SignUpForm{
 
 }
 
-<<<<<<< HEAD
-export default new SignUpScreen();
-=======
 export default SignUpForm
->>>>>>> main
