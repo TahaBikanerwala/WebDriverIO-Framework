@@ -1,4 +1,3 @@
-
 import FooterNav from "./footer.nav"
 
 const CARE_HEADING = "~Care"

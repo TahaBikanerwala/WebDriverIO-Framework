@@ -1,14 +1,12 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import LoginScreen from '../screenObjects/login.screen'
-import MePlusPage from '../screenObjects/meplus.screen';
-import SignUpForm from '../screenObjects/signup.screen';
+import homeScreen from '../screenObjects/home.screen';
+import loginScreen from '../screenObjects/login.screen'
+import mePlusScreen from '../screenObjects/meplus.screen';
+import signupScreen from '../screenObjects/signup.screen';
 
 // const pages = {
 //     login: LoginPage
 // }
-const loginScreen = new LoginScreen()
-const mePlusPage = new MePlusPage()
-const signupForm = new SignUpForm()
 
 Given(/^Member is on the login screen$/, async() => {
     await expect(loginScreen.signUpBtn).toBeDisplayed()
