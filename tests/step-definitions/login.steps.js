@@ -12,7 +12,7 @@ const signupForm = new SignUpForm()
 
 Given(/^Member is on the login screen$/, async() => {
     await expect(loginScreen.signUpBtn).toBeDisplayed()
-    
+
 });
 
 When(/^The member logs in with incorrrect username and password$/, async() => {
