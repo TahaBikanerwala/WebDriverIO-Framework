@@ -19,7 +19,7 @@
         "webdriverio": "^7.20.2"
     },
     "scripts": {
-        "wdio": "wdio run wdio.conf.js",
-        "test": "wdio"
+        "android-test": "./node_modules/.bin/wdio ./wdio.android.conf.js",
+        "ios-test": "./node_modules/.bin/wdio ./wdio.ios.conf.js"
     }
 }
