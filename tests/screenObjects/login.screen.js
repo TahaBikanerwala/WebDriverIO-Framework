@@ -11,6 +11,7 @@ const SIGNUP_BTN = "~Sign Up"
 const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
 const ERROR_BANNER = "~The user credentials were incorrect."
+const TITLE_TEXT = "~Sign in Email * Password *"
 const commonFunctions = new CommonFunctions();
 
 class LoginScreen {
@@ -55,6 +56,10 @@ class LoginScreen {
         return $(ERROR_BANNER)
     }
 
+    get titleTxt(){
+        return $(TITLE_TEXT)
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -68,7 +73,6 @@ class LoginScreen {
 
     async goToSignup() {
         await this.signUpBtn.click();
-    
     }
 
 }

@@ -10,6 +10,8 @@ import signupScreen from '../screenObjects/signup.screen';
 
 Given(/^Member is on the login screen$/, async() => {
     await expect(loginScreen.signUpBtn).toBeDisplayed()
+    await expect(loginScreen.titleTxt).toBeDisplayed()
+    await expect(loginScreen.titleTxt).toHaveAttrContaining("content-desc","Sign in Email * Password *")
 
 });
 
