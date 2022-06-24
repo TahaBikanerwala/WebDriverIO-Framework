@@ -2,3 +2,7 @@
 ./node_modules/.cache
 ./allure-report/*
 ./allure-results/*
+allure-report/
+allure-results/
+app/
+node_modules/.cache/
