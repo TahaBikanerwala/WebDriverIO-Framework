@@ -1,81 +1,81 @@
 [ {
-  "uid" : "452219b8e1de879c",
-  "name" : "Given Member is on the login screen",
-  "time" : {
-    "start" : 1655995906801,
-    "stop" : 1655995911060,
-    "duration" : 4259
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dccee928cdad6bad",
-  "name" : "When The member logs in with incorrrect username and password",
-  "time" : {
-    "start" : 1655995911060,
-    "stop" : 1655995919682,
-    "duration" : 8622
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "7389713ec0dd5e1f",
-  "name" : "Then The member should get an error message displayed",
-  "time" : {
-    "start" : 1655995919682,
-    "stop" : 1655995922835,
-    "duration" : 3153
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4a61f2c677f332f2",
-  "name" : "Given Member is on the login screen",
-  "time" : {
-    "start" : 1655995922851,
-    "stop" : 1655995922900,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "32aba502bccc7994",
+  "uid" : "225244e920384fa",
   "name" : "",
   "time" : {
-    "start" : 1655995922836,
-    "stop" : 1655995922836,
-    "duration" : 0
+    "start" : 1656054942947,
+    "stop" : 1656054942948,
+    "duration" : 1
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e511928154e7b0ae",
-  "name" : "When The member logs in with corrrect username and password",
-  "time" : {
-    "start" : 1655995922901,
-    "stop" : 1655995930599,
-    "duration" : 7698
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6ad02116b41186f2",
+  "uid" : "d3deb0c606d28c8",
   "name" : "",
   "time" : {
-    "start" : 1655995940624,
-    "stop" : 1655995940624,
-    "duration" : 0
+    "start" : 1656054954643,
+    "stop" : 1656054954644,
+    "duration" : 1
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "13dc1251de9879e2",
+  "uid" : "3d90f1a08875e1d3",
   "name" : "Then The member should be able to reach the Home Page of the app",
   "time" : {
-    "start" : 1655995930599,
-    "stop" : 1655995940624,
-    "duration" : 10025
+    "start" : 1656054952156,
+    "stop" : 1656054954643,
+    "duration" : 2487
   },
-  "status" : "broken",
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a840d402c582f6d9",
+  "name" : "Given Member is on the login screen",
+  "time" : {
+    "start" : 1656054933621,
+    "stop" : 1656054933624,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b524697b769def2f",
+  "name" : "When The member logs in with incorrrect username and password",
+  "time" : {
+    "start" : 1656054933624,
+    "stop" : 1656054940210,
+    "duration" : 6586
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "19330060dbb70b80",
+  "name" : "Then The member should get an error message displayed",
+  "time" : {
+    "start" : 1656054940210,
+    "stop" : 1656054942947,
+    "duration" : 2737
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3dc8908c241ed91f",
+  "name" : "When The member logs in with corrrect username and password",
+  "time" : {
+    "start" : 1656054942968,
+    "stop" : 1656054952156,
+    "duration" : 9188
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ae4fa685e1348f95",
+  "name" : "Given Member is on the login screen",
+  "time" : {
+    "start" : 1656054942967,
+    "stop" : 1656054942967,
+    "duration" : 0
+  },
+  "status" : "passed",
   "severity" : "normal"
 } ]

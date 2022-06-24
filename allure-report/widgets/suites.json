@@ -1,19 +1,19 @@
 {
   "total" : 2,
   "items" : [ {
-    "uid" : "c0e6154a69553874943cd322cbe1b8d6",
-    "name" : "Login Feature: As a member, I can log into the application",
+    "uid" : "5431f91fff0220783ffefa4545dfa602",
+    "name" : "Login Feature: As a member, I cannot log into the application",
     "statistic" : {
       "failed" : 0,
-      "broken" : 1,
+      "broken" : 0,
       "skipped" : 0,
-      "passed" : 3,
+      "passed" : 4,
       "unknown" : 0,
       "total" : 4
     }
   }, {
-    "uid" : "5431f91fff0220783ffefa4545dfa602",
-    "name" : "Login Feature: As a member, I cannot log into the application",
+    "uid" : "c0e6154a69553874943cd322cbe1b8d6",
+    "name" : "Login Feature: As a member, I can log into the application",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

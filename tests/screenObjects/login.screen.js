@@ -1,17 +1,22 @@
 import CommonFunctions from "../utilities/common.functions"
+import HeaderNav from "./header.nav"
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
 const LOGIN_BUTTON = "//android.widget.Button[@content-desc='Sign in']"
 const USER_NAME = "//android.widget.EditText[@index=0]"
-const PASSWORD_FIELD = "//android.widget.EditText[@index=1]"
+const PASSWORD_FIELD = "//android.widget.EditText[@index=4]"
 const NO_BTN = "~No"
+const YES_BTN = "~Enable"
 const SIGNUP_BTN = "~Sign Up"
-const HELP_BTN = "~Help"
 const FRGT_PASS = "~Forgot Password?"
 const ERROR_BANNER = "~The user credentials were incorrect."
+const TITLE_TEXT = "//android.view.View[@content-desc='Sign in']"
+const PASSWORD_TOGGLE = "~Show password, Toggle"
 const commonFunctions = new CommonFunctions();
+const headerNav = new HeaderNav();
+
 
 class LoginScreen {
     /**
@@ -43,16 +48,24 @@ class LoginScreen {
         return $(SIGNUP_BTN);
     }
 
-    get heplpBtn() {
-        return $(HELP_BTN);
-    }
-
     get frgtPassBtn() {
         return $(FRGT_PASS);
     }
 
     get errorBanner(){
         return $(ERROR_BANNER)
+    }
+
+    get titleTxt(){
+        return $(TITLE_TEXT)
+    }
+
+    get togglePassword(){
+        return $(PASSWORD_TOGGLE)
+    }
+
+    get yesBtn(){
+        return $(YES_BTN)
     }
 
     /**
@@ -68,7 +81,6 @@ class LoginScreen {
 
     async goToSignup() {
         await this.signUpBtn.click();
-    
     }
 
 }

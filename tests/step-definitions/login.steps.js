@@ -4,17 +4,16 @@ import loginScreen from '../screenObjects/login.screen'
 import mePlusScreen from '../screenObjects/meplus.screen';
 import signupScreen from '../screenObjects/signup.screen';
 
-// const pages = {
-//     login: LoginPage
-// }
 
 Given(/^Member is on the login screen$/, async() => {
     await expect(loginScreen.signUpBtn).toBeDisplayed()
+    // await expect(loginScreen.titleTxt).toBeDisplayed()
+    // await expect(loginScreen.titleTxt).toHaveAttrContaining("content-desc","Sign in")
 
 });
 
 When(/^The member logs in with incorrrect username and password$/, async() => {
-    await loginScreen.login("Some Email","Some Password")
+    await loginScreen.login("Some Email ID","Some Password")
 });
 
 Then(/^The member should get an error message displayed$/, async()=>{
@@ -23,7 +22,7 @@ Then(/^The member should get an error message displayed$/, async()=>{
 })
 
 When(/^The member logs in with corrrect username and password$/, async() => {
-    await loginScreen.login("Jessicawarm@example.com","foobarbazz")
+    await loginScreen.login("7117+ervin@gmail.com","foobarbazz")
 });
 
 Then(/^The member should be able to reach the Home Page of the app$/, async()=>{
