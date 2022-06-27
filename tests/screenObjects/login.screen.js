@@ -15,7 +15,6 @@ const ERROR_BANNER = "~The user credentials were incorrect."
 const TITLE_TEXT = "//android.view.View[@content-desc='Sign in']"
 const PASSWORD_TOGGLE = "~Show password, Toggle"
 const commonFunctions = new CommonFunctions();
-const headerNav = new HeaderNav();
 
 
 class LoginScreen {
