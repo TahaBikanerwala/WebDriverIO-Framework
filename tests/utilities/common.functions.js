@@ -1,6 +1,7 @@
 class CommonFunctions{
 
-    async input_elements(element,data){
+    async enterText(element,data){
+        await element.toBeclickable();
         await element.click();
         await element.setValue("");
         await element.setValue(data);
