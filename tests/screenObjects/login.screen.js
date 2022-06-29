@@ -1,5 +1,5 @@
 import CommonFunctions from "../utilities/common.functions"
-import HeaderNav from "./header.nav"
+import HelpLink from "./help.link"
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -23,39 +23,39 @@ class LoginScreen {
      */
 
 
-    get inputUsername() {
+    get usernameTextfield() {
 
         return $(USER_NAME)
     }
 
-    get inputPassword() {
+    get passwordTextfield() {
 
         return $(PASSWORD_FIELD)
     }
 
-    get btnSubmit() {
+    get submitButton() {
 
         return $(LOGIN_BUTTON);
     }
 
-    get btnNo() {
+    get dontEnableBiometrics() {
 
         return $(NO_BTN);
     }
 
-    get signUpBtn() {
+    get signUpLink() {
         return $(SIGNUP_BTN);
     }
 
-    get frgtPassBtn() {
+    get forgotPasswordLink() {
         return $(FRGT_PASS);
     }
 
-    get errorBanner(){
+    get invalidCrendentialsErrorMessage(){
         return $(ERROR_BANNER)
     }
 
-    get titleTxt(){
+    get signInHeading(){
         return $(TITLE_TEXT)
     }
 
@@ -63,7 +63,7 @@ class LoginScreen {
         return $(PASSWORD_TOGGLE)
     }
 
-    get yesBtn(){
+    get enableBiometricsButton(){
         return $(YES_BTN)
     }
 
@@ -73,13 +73,13 @@ class LoginScreen {
      */
 
     async login(username, password) {
-        await commonFunctions.input_elements(this.inputUsername,username)
-        await commonFunctions.input_elements(this.inputPassword,password)
-        await this.btnSubmit.click();
+        await commonFunctions.enterText(this.usernameTextfield,username)
+        await commonFunctions.enterText(this.passwordTextfield,password)
+        await this.submitButton.click();
     }
 
     async goToSignup() {
-        await this.signUpBtn.click();
+        await this.signUpLink.click();
     }
 
 }

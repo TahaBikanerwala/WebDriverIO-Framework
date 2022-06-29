@@ -1,5 +1,5 @@
-const { join } = require('path');
-const { config } = require('./wdio.shared.conf.js')
+import { join } from 'path';
+import { config } from './wdio.shared.conf.js';
 
 config.capabilities =[
     {
@@ -7,11 +7,12 @@ config.capabilities =[
             maxInstances: 1,
             platformName: 'Android',
             automationName : 'UiAutomator2',
-            deviceName: 'Pixel XL API 30',
+            deviceName: 'Pixel 5 API 30',
             app:  join(process.cwd(),'./app/SpringHealth.apk'),
-            
+
         }
     
 ];
 
-exports.config = config
+const _config = config;
+export { _config as config };

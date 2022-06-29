@@ -1,4 +1,5 @@
-import FooterNav from "./footer.nav"
+import appTabs from "./app.tabs"
+import FooterNav from "./app.tabs"
 
 const HOMESCREEN_HEADING = "~Home"
 const UPCOMING_APPTS_TXT = "~Upcoming Appointments"
@@ -11,7 +12,7 @@ const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your ass
 const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
 
 
-class HomeScreen extends FooterNav{
+class HomeScreen extends appTabs{
     get homeScreenHeading(){
         return $(HOMESCREEN_HEADING)
     }
