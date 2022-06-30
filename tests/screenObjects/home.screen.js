@@ -1,3 +1,4 @@
+import CommonFunctions from "../utilities/common.functions"
 import appTabs from "./app.tabs"
 import FooterNav from "./app.tabs"
 
@@ -10,6 +11,8 @@ const SIGNUP_CARD = "~Get the right care for your family Sign-up your children a
 const PREVISIT_FORM_CARD="~Complete Pre-Visit Form Before you see a provider, provide information to save you time during your visit"
 const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your assessment."
 const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
+
+const commonFunctions = new CommonFunctions();
 
 
 class HomeScreen extends appTabs{
@@ -49,6 +52,10 @@ class HomeScreen extends appTabs{
         return $(PROGRESS_CARD)
     }
 
+    async goToBrowseTherapistScreen(){
+        await commonFunctions.scrollByAccessibilityId(SCHEDULE_THERAPY_BTN)
+        await this.scheduleTherapyBtn.click()
+    }
 
 }
 
