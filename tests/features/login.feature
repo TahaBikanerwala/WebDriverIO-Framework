@@ -9,5 +9,6 @@ Background:
 
   Scenario: As a member, I can log into the application with valid credentials
     When Member submits valid username and password
-    Then Member is asked to enable biometrics
+    Then Member disables biometrics
+    Then Member is navigated to Home screen
     
