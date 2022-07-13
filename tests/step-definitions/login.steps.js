@@ -1,6 +1,10 @@
 import { Given, When, Then} from '@wdio/cucumber-framework';
 import homeScreen from '../screenObjects/home.screen';
 import loginScreen from '../screenObjects/login.screen';
+import cucumberJson from 'wdio-cucumberjs-json-reporter';
+import saveScreenshot from "webdriverio/build/commands/browser/saveScreenshot"
+import multipleHtmlReporter from "multiple-cucumber-html-reporter"
+
 
 
 Given(/^Member is on the login screen$/, async() => {
@@ -11,6 +15,7 @@ When(/^Member submits invalid username and password$/, async() =>
 {   
     await browser.pause(5000)
     await loginScreen.login("Some Email ID","Some Password")
+    
 });
 
 Then(/^An error message is displayed to member$/, async()=>{
@@ -23,11 +28,11 @@ When(/^Member submits valid username and password$/, async() => {
 
 Then(/^Member disables biometrics$/, async()=>{
     await loginScreen.dontEnableBiometrics.click(); 
-    await browser.pause(5000)
-    await expect(homeScreen.homeScreenHeading).toBeDisplayed()
 })
 
 Then(/^Member is navigated to Home screen$/, async()=>{
+    await browser.pause(3000)
+    await expect(homeScreen.homeScreenHeading).toBeDisplayed()
     await homeScreen.goToBrowseTherapistScreen()
 })
 

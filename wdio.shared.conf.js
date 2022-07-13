@@ -1,4 +1,7 @@
 const allure = require('allure-commandline')
+const report = require('multiple-cucumber-html-reporter');
+const { removeSync } = require('fs-extra');
+
 export const config = {
     runner: 'local',
     port: 4723,
@@ -29,7 +32,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './tests/features/**/*.feature'
+        './tests/features/**/login.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -137,10 +140,11 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec', ['allure', {
-        outputDir: 'allure-results',
-        addConsoleLogs:true
-    }]],
+    reporters: ['spec',[ 'cucumberjs-json', {
+        jsonFolder: 'testReports/json',
+        language: 'en',
+    }]
+],
 
 
 
@@ -168,7 +172,7 @@ export const config = {
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
-        ignoreUndefinedDefinitions: false
+        ignoreUndefinedDefinitions: true
     },
     
     //
@@ -180,28 +184,36 @@ export const config = {
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
     // resolved to continue.
 
-
+    onPrepare: () => {
+        // Remove the `.tmp/` folder that holds the json and report files
+        removeSync('testReports/');
+      },
 
     onComplete: function() {
-        const reportError = new Error('Could not generate Allure report')
-        const generation = allure(['generate', 'allure-results', '--clean', '-o', 'allure-report'])
-        return new Promise((resolve, reject) => {
-            const generationTimeout = setTimeout(
-                () => reject(reportError),
-                5000)
-
-            generation.on('exit', function(exitCode) {
-                clearTimeout(generationTimeout)
-
-                if (exitCode !== 0) {
-                    return reject(reportError)
-                }
-
-                console.log('Allure report successfully generated')
-                resolve()
-            })
-        })
-    }
+        report.generate({
+            // Required
+            // This part needs to be the same path where you store the JSON files
+            // default = '.tmp/json/'
+            reportName: 'Spring Mobile Test HTML Report',
+            jsonDir: 'testReports/json/',
+            reportPath: 'testReports/report/',
+            displayDuration:true,
+            displayReportTime: true,
+            screenshotsDirectory: 'screenshots/',
+            storeScreenshots: true,
+            customData: {
+                title: 'Run info',
+                data: [
+                    {label: 'Project', value: 'Mobile Test Automation'},
+                    {label: 'Build', value: '2.20.0'},
+                    //{label: 'Execution Start Time', value: 'July 12th 2022, 3:00 PM IST'},
+                    //{label: 'Execution End Time', value: 'July 12th 2022, 3:02 PM IST'}
+                ]
+            }
+            // for more options see https://github.com/wswebcreation/multiple-cucumber-html-reporter#options
+          });
+    
+    },
 
 
 
@@ -295,8 +307,18 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+     afterStep :async function (step, scenario, result, context) {
+       // await browser.saveScreenshot('./tests/screenshots/screenshot.png');
+        //await cucumberJson.attach( await browser.saveScreenshot('./tests/screenshots/screenshot.png'),'image/png') 
+        if (result.passed) {
+            return;
+        }
+
+        else {
+            await browser.saveScreenshot('./tests/screenshots/screenshot.png')
+            //await cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+        }
+    },
     /**
      *
      * Runs after a Cucumber Scenario.

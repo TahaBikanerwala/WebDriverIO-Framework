@@ -9,7 +9,7 @@ class CommonFunctions{
     }
 
     async scrollByAccessibilityId(locator){
-        await browser.execute("mobile: scroll", { strategy: 'accessibility id', selector : locator})
+       await browser.execute("mobile: scroll", {  strategy: 'accessibility id', selector : locator})
     }
 
     async scrollByXpath(locator){
