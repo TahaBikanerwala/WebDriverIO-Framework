@@ -14,6 +14,7 @@ const SIGNUP_CARD = "android.widget.Button[@content-desc='Get the right care for
 const PREVISIT_FORM_CARD="~Complete Pre-Visit Form Before you see a provider, provide information to save you time during your visit"
 const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your assessment."
 const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
+const SCROLL_VIEW = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
 
 const commonFunctions = new CommonFunctions();
 
@@ -53,6 +54,9 @@ class HomeScreen extends appTabs{
 
     get progressCard(){
         return $(PROGRESS_CARD)
+    }
+    get scrollArea(){
+        return $(SCROLL_VIEW)
     }
 
     async goToBrowseTherapistScreen(){
@@ -97,6 +101,11 @@ class HomeScreen extends appTabs{
         
         // await browser.execute("mobile: scroll", { strategy: 'accessibility id', selector : ASSESSMENT_CARD, direction: 'down'})
         // await this.signUpCard.click()
+        //await browser.pause(3000)
+        await browser.touchAction([ {action: 'longPress', x: 794, y:1351 }, { action: 'wait', ms: 1000 }, { action: 'moveTo', x: 799, y: 1114}, 'release' ]);
+        //await browser.pause(3000)
+       // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
+        //await this.assessmentCard.click()
     }
 
 }
