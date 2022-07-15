@@ -1,3 +1,4 @@
+import WebDriver from "@wdio/utils/build/monad"
 import CommonFunctions from "../utilities/common.functions"
 import HelpLink from "./help.link"
 
@@ -75,8 +76,7 @@ class LoginScreen {
     async login(username, password) {
         await commonFunctions.enterText(this.usernameTextfield,username)
         await commonFunctions.enterText(this.passwordTextfield,password)
-        await this.submitButton.click();
-    }
+        await this.submitButton.click();}   
 
     async goToSignup() {
         await this.signUpLink.click();
