@@ -1,3 +1,4 @@
+import $ from "webdriverio/build/commands/browser/$"
 import CommonFunctions from "../utilities/common.functions"
 import appTabs from "./app.tabs"
 import FooterNav from "./app.tabs"
@@ -11,6 +12,7 @@ const SIGNUP_CARD = "//android.widget.Button[@content-desc='Get the right care f
 const PREVISIT_FORM_CARD="~Complete Pre-Visit Form Before you see a provider, provide information to save you time during your visit"
 const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your assessment."
 const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
+const SCROLL_VIEW = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
 
 const commonFunctions = new CommonFunctions();
 const footerNav = new FooterNav();
@@ -52,11 +54,16 @@ class HomeScreen extends appTabs{
     get progressCard(){
         return $(PROGRESS_CARD)
     }
+    get scrollArea(){
+        return $(SCROLL_VIEW)
+    }
 
     async goToBrowseTherapistScreen(){
-        await commonFunctions.scrollByAccessibilityId()
         //await browser.pause(3000)
-        //await this.progressCard.click()
+        await browser.touchAction([ {action: 'longPress', x: 794, y:1351 }, { action: 'wait', ms: 1000 }, { action: 'moveTo', x: 799, y: 1114}, 'release' ]);
+        //await browser.pause(3000)
+       // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
+        //await this.assessmentCard.click()
     }
 
 }

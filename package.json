@@ -25,5 +25,11 @@
     "scripts": {
         "android-test": "./node_modules/.bin/wdio ./wdio.android.conf.js",
         "ios-test": "./node_modules/.bin/wdio ./wdio.ios.conf.js"
+    },
+    "dependencies": {
+        "wdio-reportportal-reporter": "^7.4.2",
+        "wdio-reportportal-service": "^7.3.1",
+        "wdio-timeline-reporter": "^5.1.4",
+        "wdio-video-reporter": "^3.2.1"
     }
 }
