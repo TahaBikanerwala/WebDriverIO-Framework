@@ -6,12 +6,52 @@ const reportportal = require('wdio-reportportal-reporter');
 const RpService = require("wdio-reportportal-service");
 const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
 
+
+const conf = {
+    reportPortalClientConfig: { // report portal settings
+      token: '00000000-0000-0000-0000-00000000000',
+      endpoint: 'https://reportportal-url/api/v1',
+      launch: 'launch_name',
+      project: 'project_name',
+      mode: 'DEFAULT',
+      debug: false,
+      description: "Launch description text",
+      attributes: [{key:"tag", value: "foo"}],
+      headers: {"foo": "bar"}, // optional headers for internal http client
+      restClientConfig: { // axios like http client config - https://github.com/axios/axios#request-config
+        proxy: {
+          protocol: 'https',
+          host: '127.0.0.1',
+          port: 9000,
+          auth: {
+            username: 'mikeymike',
+            password: 'rapunz3l'
+          }
+        },
+        timeout: 60000
+      }
+    },
+    reportSeleniumCommands: false, // add selenium commands to log
+    seleniumCommandsLogLevel: 'debug', // log level for selenium commands
+    autoAttachScreenshots: false, // automatically add screenshots
+    screenshotsLogLevel: 'info', // log level for screenshots
+    parseTagsFromTestTitle: false, // parse strings like `@foo` from titles and add to Report Portal
+    cucumberNestedSteps: false, // report cucumber steps as Report Portal steps
+    autoAttachCucumberFeatureToScenario: false, // requires cucumberNestedSteps to be true for use
+    sanitizeErrorMessages: true, // strip color ascii characters from error stacktrace
+    sauceLabOptions : {
+      enabled: false, // automatically add SauseLab ID to rp tags.
+      sldc: "US" // automatically add SauseLab region to rp tags.
+    }
+  };
 export const config = {
     runner: 'local',
     port: 4723,
     // host: 'localhost',
     path: '/wd/hub',
     sync: false,
+
+    
     
 
     //
@@ -111,7 +151,7 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['appium', [TimelineService]],
+    services: ['appium', [TimelineService],[RpService, {}]],
     appium: {
         // For options see
         // https://github.com/webdriverio/webdriverio/tree/master/packages/wdio-appium-service
@@ -164,6 +204,7 @@ export const config = {
         disableWebdriverScreenshotsReporting: true,
         useCucumberStepReporter: true,
       }],
+      [reportportal, conf]
 ] ,
 
 
@@ -235,6 +276,8 @@ export const config = {
     
     },*/
     onComplete: function() {
+        const link = RpService.getLaunchUrl(config);
+        console.log(`Report portal link ${link}`)
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean','--open'])
         return new Promise((resolve, reject) => {
@@ -351,6 +394,7 @@ export const config = {
         if(error) {
             await browser.saveScreenshot('./tests/screenshots/screenshot.png')
             //await cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+            await reportportal.sendFileToTest(step, 'error', "reportportal.png", fs.readFileSync('./tests/screenshots/reportportal.png'));
         }
     },
     /**
