@@ -61,7 +61,7 @@ class HomeScreen extends appTabs{
 
     async goToBrowseTherapistScreen(){
         // await commonFunctions.scrollByAccessibilityId(SCHEDULE_THERAPY_BTN)
-        await this.progressCard.scrollIntoView()
+        // await this.progressCard.scrollIntoView()
         // await browser.scroll(0,2000).end()
         // await browser.moveTo(SIGNUP_CARD);
         // browser.touchPerform(RECENT_APPTS_TXT,0,2000);
@@ -101,8 +101,10 @@ class HomeScreen extends appTabs{
         
         // await browser.execute("mobile: scroll", { strategy: 'accessibility id', selector : ASSESSMENT_CARD, direction: 'down'})
         // await this.signUpCard.click()
-        //await browser.pause(3000)
-        await browser.touchAction([ {action: 'longPress', x: 794, y:1351 }, { action: 'wait', ms: 1000 }, { action: 'moveTo', x: 799, y: 1114}, 'release' ]);
+        await browser.pause(3000)
+        // await browser.touchAction([ {action: 'longPress', x: 794, y:1351 }, { action: 'wait', ms: 1000 }, { action: 'moveTo', x: 799, y: 1114}, 'release' ]);
+        
+        await browser.touchAction([{action:'press', x:700 , y: 1800},{action: 'wait', ms: 3000},{action: 'moveTo', x: 700, y: 600},'release'])
         //await browser.pause(3000)
        // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
         //await this.assessmentCard.click()

@@ -200,8 +200,8 @@ export const config = {
     }],
     ['allure', {
         outputDir: './allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: true,
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
         useCucumberStepReporter: true,
       }],
       [reportportal, conf]
@@ -394,7 +394,7 @@ export const config = {
         if(error) {
             await browser.saveScreenshot('./tests/screenshots/screenshot.png')
             //await cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
-            await reportportal.sendFileToTest(step, 'error', "reportportal.png", fs.readFileSync('./tests/screenshots/reportportal.png'));
+            // await reportportal.sendFileToTest(step, 'error', "reportportal.png", fs.readFileSync('./tests/screenshots/reportportal.png'));
         }
     },
     /**
