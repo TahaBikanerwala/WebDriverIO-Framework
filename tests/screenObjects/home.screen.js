@@ -4,6 +4,7 @@ import appTabs from "./app.tabs"
 import FooterNav from "./app.tabs"
 import saveScreenshot from "webdriverio/build/commands/browser/saveScreenshot"
 
+
 const HOMESCREEN_HEADING = "~Home"
 const UPCOMING_APPTS_TXT = "~Upcoming Appointments"
 const RECENT_APPTS_TXT = "~Recent Appointments"
@@ -17,6 +18,7 @@ const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progre
 const SCROLL_VIEW = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
 
 const commonFunctions = new CommonFunctions();
+
 
 
 class HomeScreen extends appTabs{
@@ -108,6 +110,7 @@ class HomeScreen extends appTabs{
         //await browser.pause(3000)
        // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
         //await this.assessmentCard.click()
+        await this.yourCareTab.click()
     }
 
 }
