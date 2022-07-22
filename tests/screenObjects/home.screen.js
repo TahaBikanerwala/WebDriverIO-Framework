@@ -115,13 +115,16 @@ class HomeScreen extends appTabs{
        // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
         //await this.assessmentCard.click()
         // await this.yourCareTab.click()
+        await console.log("This lists all buttons ")
         // await console.log(this.allButtons)
+        // await this.allButtons.click()
+        await browser.pause(3000)
 
         for (var i=0; i < this.allButtons.length; i++) {
             // Do something with the element here
             await console.log(this.allButtons)
             await console.log("Is this logged?")
-            await this.allButtons.click()
+            await this.allButtons[0].click()
             await browser.pause(4000)
             
        }
