@@ -16,7 +16,7 @@ const PREVISIT_FORM_CARD="~Complete Pre-Visit Form Before you see a provider, pr
 const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your assessment."
 const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
 const SCROLL_VIEW = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
-
+const BUTTONS = "//android.widget.Button"
 const commonFunctions = new CommonFunctions();
 
 
@@ -61,6 +61,10 @@ class HomeScreen extends appTabs{
         return $(SCROLL_VIEW)
     }
 
+    get allButtons(){
+        return $(BUTTONS)
+    }
+
     async goToBrowseTherapistScreen(){
         // await commonFunctions.scrollByAccessibilityId(SCHEDULE_THERAPY_BTN)
         // await this.progressCard.scrollIntoView()
@@ -103,14 +107,25 @@ class HomeScreen extends appTabs{
         
         // await browser.execute("mobile: scroll", { strategy: 'accessibility id', selector : ASSESSMENT_CARD, direction: 'down'})
         // await this.signUpCard.click()
-        await browser.pause(3000)
+        await browser.pause(7000)
         // await browser.touchAction([ {action: 'longPress', x: 794, y:1351 }, { action: 'wait', ms: 1000 }, { action: 'moveTo', x: 799, y: 1114}, 'release' ]);
         
-        await browser.touchAction([{action:'press', x:700 , y: 1800},{action: 'wait', ms: 3000},{action: 'moveTo', x: 700, y: 600},'release'])
+        await browser.touchAction([{action:'press', x:700 , y: 1800},{action: 'wait', ms: 3000},{action: 'moveTo', x: 700, y: 300},'release'])
         //await browser.pause(3000)
        // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
         //await this.assessmentCard.click()
-        await this.yourCareTab.click()
+        // await this.yourCareTab.click()
+        // await console.log(this.allButtons)
+
+        for (var i=0; i < this.allButtons.length; i++) {
+            // Do something with the element here
+            await console.log(this.allButtons)
+            await console.log("Is this logged?")
+            await this.allButtons.click()
+            await browser.pause(4000)
+            
+       }
+
     }
 
 }
