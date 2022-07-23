@@ -234,8 +234,6 @@ export const config = {
     
     },*/
     onComplete: function() {
-        const link = RpService.getLaunchUrl(config);
-        console.log(`Report portal link ${link}`)
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean','--open'])
         return new Promise((resolve, reject) => {
