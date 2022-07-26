@@ -2,6 +2,8 @@ import WebDriver from "@wdio/utils/build/monad"
 import CommonFunctions from "../utilities/common.functions"
 import appTabs from "./app.tabs"
 import FooterNav from "./app.tabs"
+import saveScreenshot from "webdriverio/build/commands/browser/saveScreenshot"
+
 
 const HOMESCREEN_HEADING = "~Home"
 const UPCOMING_APPTS_TXT = "~Upcoming Appointments"
@@ -14,7 +16,7 @@ const ASSESSMENT_CARD = "(//android.view.View[@content-desc='proceed, button'])[
 const PROGRESS_CARD = "(//android.view.View[@content-desc='proceed, button'])[4]"
 
 const commonFunctions = new CommonFunctions();
-const footerNav = new FooterNav();
+
 
 
 class HomeScreen extends appTabs{
@@ -53,6 +55,13 @@ class HomeScreen extends appTabs{
     get progressCard(){
         return $(PROGRESS_CARD)
     }
+    get scrollArea(){
+        return $(SCROLL_VIEW)
+    }
+
+    get allButtons(){
+        return $(BUTTONS)
+    }
 
     async goToBrowseTherapistScreen(){
         await commonFunctions.scroll(this.scheduleTherapyBtn)
@@ -78,4 +87,3 @@ class HomeScreen extends appTabs{
 }
 
 export default new HomeScreen();
-                                            

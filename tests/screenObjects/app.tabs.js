@@ -1,5 +1,4 @@
 import HelpAndSupportFooter from "./help_and_support.footer"
-import BottomScreen from "./help_and_support.footer"
 
 const HOME_NAV = "~Home Tab 1 of 5"
 const CARE_NAV = "~Your Care Tab 2 of 5"

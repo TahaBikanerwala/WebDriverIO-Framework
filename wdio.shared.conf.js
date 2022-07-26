@@ -1,6 +1,9 @@
 const allure = require('allure-commandline')
 const report = require('multiple-cucumber-html-reporter');
 const { removeSync } = require('fs-extra');
+const video = require('wdio-video-reporter');
+const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
+
 
 export const config = {
     runner: 'local',
@@ -8,7 +11,7 @@ export const config = {
     // host: 'localhost',
     path: '/wd/hub',
     sync: false,
-    
+
 
     //
     // ====================
@@ -143,11 +146,27 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',[ 'cucumberjs-json', {
+    reporters: ['spec',
+    ['timeline', { outputDir: './time_line_reporter/.timeline' , 
+                   fileName : 'timeline-report.html',
+                   embedImages: true,
+                   screenshotStrategy: 'none' }],
+    [ 'cucumberjs-json', {
         jsonFolder: 'testReports/json',
         language: 'en',
-    }]
-],
+    }],
+    [video, {
+        saveAllVideos: false,       // If true, also saves videos for successful test cases
+        videoSlowdownMultiplier: 3,
+        outputDir: './recordings' // Higher to get slower videos, lower for faster videos [Value 1-100]
+    }],
+    ['allure', {
+        outputDir: './allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+        useCucumberStepReporter: true,
+      }]
+] ,
 
 
 
@@ -192,7 +211,7 @@ export const config = {
         removeSync('testReports/');
       },
 
-    onComplete: function() {
+    /*onComplete: function() {
         report.generate({
             // Required
             // This part needs to be the same path where you store the JSON files
@@ -216,6 +235,26 @@ export const config = {
             // for more options see https://github.com/wswebcreation/multiple-cucumber-html-reporter#options
           });
     
+    },*/
+    onComplete: function() {
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean','--open'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                5000)
+
+            generation.on('exit', function(exitCode) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
     },
 
 
@@ -310,16 +349,11 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-     afterStep :async function (step, scenario, result, context) {
-       // await browser.saveScreenshot('./tests/screenshots/screenshot.png');
-        //await cucumberJson.attach( await browser.saveScreenshot('./tests/screenshots/screenshot.png'),'image/png') 
-        if (result.passed) {
-            return;
-        }
-
-        else {
+     afterStep :async function (step, scenario, { error, duration, passed }, context) {
+        if(error) {
             await browser.saveScreenshot('./tests/screenshots/screenshot.png')
             //await cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+            // await reportportal.sendFileToTest(step, 'error', "reportportal.png", fs.readFileSync('./tests/screenshots/reportportal.png'));
         }
     },
     /**
