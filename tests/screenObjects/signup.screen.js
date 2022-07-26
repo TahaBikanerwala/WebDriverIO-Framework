@@ -8,9 +8,10 @@ const DOB_SWITCH_TO_INPUT = "~Switch to input"
 const DOB_INPUT = "//android.widget.EditText[@index=1]"
 const DOB_OK = "~Ok"
 const DOB_CANCEL = "~Cancel"
-const TERMS_CHECKBOX = "//android.widget.CheckBox[@index=11]"
+const TERMS_CHECKBOX = "I have read and understood Spring Health's Electronic Communication Agreement"
 const NEXT_BUTTON = "~Next"
-const TITLE = "~Join Spring Health"
+const SIGNUP_SCREEN_TITLE = "~Join Spring Health"
+const SIGNUP_SCREEN_HEADING = "~Let’s find your benefits."
 
 class SignUpSreen{
 
@@ -60,31 +61,36 @@ class SignUpSreen{
     }
 
     get screenTitle(){
-        return $(TITLE)
+        return $(SIGNUP_SCREEN_TITLE)
     }
 
-    async typeFirstName(){
+    get screenHeading(){
+        return $(SIGNUP_SCREEN_HEADING)
+    }
+
+    async typeFirstName(name){
         await this.firstName.click()
-        await this.firstName.setValue("Taha")
+        await this.firstName.setValue(name)
         await browser.hideKeyboard();
     }
 
-    async typeLastName(){
+    async typeLastName(lastname){
         await this.lastName.click()
-        await this.lastName.setValue("Bikanerwala")
+        await this.lastName.setValue(lastname)
         await browser.hideKeyboard();
     }
 
-    async typeEmail(){
+    async typeEmail(email){
         await this.emailField.click()
-        await this.emailField.setValue("Bikanerwala@taha.com")
+        await this.emailField.setValue(email)
         await browser.hideKeyboard();
     }
 
-    async selectDOB(){
+    async selectDOB(dob){
         await this.dobField.click()
         await this.dobSwitchInput.click()
-        await this.dobInput.setValue("2/3/1980")
+        await browser.hideKeyboard()
+        await this.dobInput.setValue(dob)
         await this.dobOk.click()
     }
 

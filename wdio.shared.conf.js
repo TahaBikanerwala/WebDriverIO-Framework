@@ -34,7 +34,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './tests/features/**/login.feature'
+        './tests/features/**/us_signup.feature'
     ],
     // Patterns to exclude.
     exclude: [
