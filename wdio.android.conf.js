@@ -9,7 +9,7 @@ config.capabilities =[
             platformName: 'Android',
             automationName : 'UiAutomator2',
             deviceName: 'Pixel 5 API 30',
-            app:  join(process.cwd(),'./app/SpringHealth (4).apk'),
+            app:  join(process.cwd(),'./app/SpringHealth.apk'),
            
 
         }
