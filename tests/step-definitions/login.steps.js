@@ -36,8 +36,7 @@ Then(/^Member disables biometrics$/, async()=>{
 
 Then(/^Member is navigated to Home screen$/, async()=>{
     await browser.pause(3000)
-    // await expect(homeScreen.progressCard).toBeDisplayed()
-    await homeScreen.goToBrowseTherapistScreen()
-    await browser.pause(5000)
+    await expect(homeScreen.homeScreenHeading).toBeDisplayed()
+    await homeScreen.completeProgressCheckIn()
 })
 

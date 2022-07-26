@@ -1,4 +1,4 @@
-import touchAction from "webdriverio/build/commands/browser/touchAction"
+import WebDriver from "@wdio/utils/build/monad"
 import CommonFunctions from "../utilities/common.functions"
 import appTabs from "./app.tabs"
 import FooterNav from "./app.tabs"
@@ -10,13 +10,11 @@ const UPCOMING_APPTS_TXT = "~Upcoming Appointments"
 const RECENT_APPTS_TXT = "~Recent Appointments"
 const SCHEDULE_THERAPY_BTN = "~Schedule a therapy visit"
 const TODO_TXT = "~Tasks to do"
-// const SIGNUP_CARD = "~Get the right care for your family Sign-up your children and add other dependents"
-const SIGNUP_CARD = "android.widget.Button[@content-desc='Get the right care for your family Sign-up your children and add other dependents']"
-const PREVISIT_FORM_CARD="~Complete Pre-Visit Form Before you see a provider, provide information to save you time during your visit"
-const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your assessment."
-const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
-const SCROLL_VIEW = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
-const BUTTONS = "//android.widget.Button"
+const SIGNUP_CARD = "(//android.view.View[@content-desc='proceed, button'])[1]"
+const PREVISIT_FORM_CARD="(//android.view.View[@content-desc='proceed, button'])[2]"
+const ASSESSMENT_CARD = "(//android.view.View[@content-desc='proceed, button'])[3]"
+const PROGRESS_CARD = "(//android.view.View[@content-desc='proceed, button'])[4]"
+
 const commonFunctions = new CommonFunctions();
 
 
@@ -66,71 +64,26 @@ class HomeScreen extends appTabs{
     }
 
     async goToBrowseTherapistScreen(){
-        // await commonFunctions.scrollByAccessibilityId(SCHEDULE_THERAPY_BTN)
-        // await this.progressCard.scrollIntoView()
-        // await browser.scroll(0,2000).end()
-        // await browser.moveTo(SIGNUP_CARD);
-        // browser.touchPerform(RECENT_APPTS_TXT,0,2000);
-        // await browser.touchPerform([
-        //     {
-        //     action: 'press',
-        //     options: {
-        //         x: 736,
-        //         y: 800
-        //     }
-        //     },
-        //     {
-        //         action: 'moveTo',
-        //         options: {
-        //             x: 736,
-        //             y: 1133
-        //         }
-        //     },
-        //     {
-        //         action: 'release'
-        //     }
-        // ]);
-        // await browser.touchAction({
-        //     action: 'tap',
-        //     x: 736,
-        //     y:1133,
-        //     element: SIGNUP_CARD
-        // })
-        // await this.scheduleTherapyBtn.click()
-        // await touchAction().press(RECENT_APPTS_TXT).moveTo(SIGNUP_CARD).release()
-        // await browser.swipeUp(HOMESCREEN_HEADING,900,1);
-        // await browser.touchScroll(1,900);
-        // await browser.execute(SIGNUP_CARD => SIGNUP_CARD.scrollIntoView(), browser.element('accessibility id').value);
-        // await browser.pause(5000)
-       
-        
-        
-        // await browser.execute("mobile: scroll", { strategy: 'accessibility id', selector : ASSESSMENT_CARD, direction: 'down'})
-        // await this.signUpCard.click()
-        await browser.pause(7000)
-        // await browser.touchAction([ {action: 'longPress', x: 794, y:1351 }, { action: 'wait', ms: 1000 }, { action: 'moveTo', x: 799, y: 1114}, 'release' ]);
-        
-        await browser.touchAction([{action:'press', x:700 , y: 1800},{action: 'wait', ms: 3000},{action: 'moveTo', x: 700, y: 300},'release'])
-        //await browser.pause(3000)
-       // await commonFunctions.scrollByAccessibilityId(ASSESSMENT_CARD)
-        //await this.assessmentCard.click()
-        // await this.yourCareTab.click()
-        await console.log("This lists all buttons ")
-        // await console.log(this.allButtons)
-        // await this.allButtons.click()
-        await browser.pause(3000)
-
-        for (var i=0; i < this.allButtons.length; i++) {
-            // Do something with the element here
-            await console.log(this.allButtons)
-            await console.log("Is this logged?")
-            await this.allButtons[0].click()
-            await browser.pause(4000)
-            
-       }
-
+        await commonFunctions.scroll(this.scheduleTherapyBtn)
+        await this.scheduleTherapyBtn.click()
     }
 
+    async completePrevisitForm(){
+        await commonFunctions.scroll(this.previsitFormCard)
+        await this.previsitFormCard.click()
+        await browser.pause(3000)
+    }
+    async completeAssessment(){
+        await commonFunctions.scroll(this.assessmentCard)
+        await this.assessmentCard.click()
+        await browser.pause(3000)
+    }
+
+    async completeProgressCheckIn(){
+        await commonFunctions.scroll(this.progressCard)
+        await this.progressCard.click()
+        await browser.pause(3000)
+    }
 }
 
 export default new HomeScreen();
