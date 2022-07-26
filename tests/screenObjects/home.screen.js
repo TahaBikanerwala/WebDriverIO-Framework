@@ -1,3 +1,4 @@
+import WebDriver from "@wdio/utils/build/monad"
 import CommonFunctions from "../utilities/common.functions"
 import appTabs from "./app.tabs"
 import FooterNav from "./app.tabs"
@@ -7,10 +8,10 @@ const UPCOMING_APPTS_TXT = "~Upcoming Appointments"
 const RECENT_APPTS_TXT = "~Recent Appointments"
 const SCHEDULE_THERAPY_BTN = "~Schedule a therapy visit"
 const TODO_TXT = "~Tasks to do"
-const SIGNUP_CARD = "//android.widget.Button[@content-desc='Get the right care for your family Sign-up your children and add other dependents']"
-const PREVISIT_FORM_CARD="~Complete Pre-Visit Form Before you see a provider, provide information to save you time during your visit"
-const ASSESSMENT_CARD = "~Complete Conditions Screening Please continue your assessment."
-const PROGRESS_CARD = "~Measure Your Progress You are overdue for a short Progress Check-in"
+const SIGNUP_CARD = "(//android.view.View[@content-desc='proceed, button'])[1]"
+const PREVISIT_FORM_CARD="(//android.view.View[@content-desc='proceed, button'])[2]"
+const ASSESSMENT_CARD = "(//android.view.View[@content-desc='proceed, button'])[3]"
+const PROGRESS_CARD = "(//android.view.View[@content-desc='proceed, button'])[4]"
 
 const commonFunctions = new CommonFunctions();
 const footerNav = new FooterNav();
@@ -54,11 +55,26 @@ class HomeScreen extends appTabs{
     }
 
     async goToBrowseTherapistScreen(){
-        await commonFunctions.scrollByAccessibilityId()
-        //await browser.pause(3000)
-        //await this.progressCard.click()
+        await commonFunctions.scroll(this.scheduleTherapyBtn)
+        await this.scheduleTherapyBtn.click()
     }
 
+    async completePrevisitForm(){
+        await commonFunctions.scroll(this.previsitFormCard)
+        await this.previsitFormCard.click()
+        await browser.pause(3000)
+    }
+    async completeAssessment(){
+        await commonFunctions.scroll(this.assessmentCard)
+        await this.assessmentCard.click()
+        await browser.pause(3000)
+    }
+
+    async completeProgressCheckIn(){
+        await commonFunctions.scroll(this.progressCard)
+        await this.progressCard.click()
+        await browser.pause(3000)
+    }
 }
 
 export default new HomeScreen();

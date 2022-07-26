@@ -9,11 +9,18 @@ class CommonFunctions{
     }
 
     async scrollByAccessibilityId(locator){
-       await browser.execute("mobile: scroll", {  strategy: 'accessibility id', selector : locator})
+       await driver.execute("mobile: scroll", {  strategy: 'accessibility id', selector : locator, direction: 'down'})
     }
 
     async scrollByXpath(locator){
         await browser.execute("mobile: scroll", { strategy: 'xpath', selector : locator})
+    }
+    async scroll(locator){
+        await browser.pause(3000)
+        while(await locator.isDisplayed() == false){
+            await browser.touchAction([{action:'press', x:700 , y: 1800},{action: 'wait', ms: 3000},{action: 'moveTo', x: 700, y: 600},'release'])
+        }
+        await browser.pause(3000)
     }
 }
  
