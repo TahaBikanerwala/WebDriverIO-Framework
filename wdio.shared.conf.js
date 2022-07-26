@@ -120,8 +120,7 @@ export const config = {
         args: {
             // For arguments see
             // https://github.com/webdriverio/webdriverio/tree/master/packages/wdio-appium-service
-        },
-        command: 'appium',
+        }
     },
     
     // Framework you want to run your specs with.
