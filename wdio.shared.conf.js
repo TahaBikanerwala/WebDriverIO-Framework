@@ -2,7 +2,6 @@ const allure = require('allure-commandline')
 const report = require('multiple-cucumber-html-reporter');
 const { removeSync } = require('fs-extra');
 const video = require('wdio-video-reporter');
-const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
 
 
 export const config = {
@@ -147,10 +146,6 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec',
-    ['timeline', { outputDir: './time_line_reporter/.timeline' , 
-                   fileName : 'timeline-report.html',
-                   embedImages: true,
-                   screenshotStrategy: 'none' }],
     [ 'cucumberjs-json', {
         jsonFolder: 'testReports/json',
         language: 'en',
