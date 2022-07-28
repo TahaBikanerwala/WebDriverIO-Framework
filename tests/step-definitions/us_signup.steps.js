@@ -1,8 +1,8 @@
 import { Given, Then, When } from "@wdio/cucumber-framework";
 import loginScreen from "../screenObjects/login.screen";
-import whoIsSigningUp from "../screenObjects/who_is_signing_up.screen"
+import meOrMePlusChildScreen from "../screenObjects/who_is_signing_up.screen2"
 import signUpScreen from "../screenObjects/signup.screen";
-import whoIsSigningUp2 from "../screenObjects/who_is_signing_up.screen2"
+import whoIsSigningUp from "../screenObjects/who_is_signing_up.screen"
 import signupScreen2 from "../screenObjects/signup.screen2";
 
 Given(/^User does not have Spring Health account$/,async()=>{
@@ -29,11 +29,11 @@ Then(/^User is asked wether He wants to create account for himself or for himsel
 
 When(/^User selects to signup only for himself$/,async()=>{
     
-    await whoIsSigningUp.meOption.click()
+    await whoIsSigningUp.signUpAsMe()
 })
 
 Then(/^User is navigated to create account screen$/,async()=>{
-    await expect(signUpScreen.screenHeading).toEqual("Let’s find your benefits.")
+    //await expect(signUpScreen.screenHeading).toEqual("Let’s find your benefits.")
 })
 
 Then(/^User fills form with valid data$/,async()=>{
@@ -43,10 +43,11 @@ Then(/^User fills form with valid data$/,async()=>{
     await signUpScreen.typeEmail("Covered_life_with_dependent+9fe256fa-c163-4214-b1ba-6679911a13a9@springhealth.com")
     await signUpScreen.clickTermsCheckbox()
     await signUpScreen.clickNext()
-    await whoIsSigningUp2.meOption.click()
+    await meOrMePlusChildScreen.createAccountForMe()
     await signupScreen2.enterPhoneNumber("8888888811")
     await signupScreen2.enterAddress("data","123","New York, NY, USA","100001")
     await signupScreen2.selectDOB("2/3/1980")
+    await browser.pause(3000)
     await signupScreen2.enterEmail("Covered_life_with_dependent+9fe256fa-c163-4214-b1ba-6679911a13a9@springhealth.com")
     await signupScreen2.setPassword()
     
