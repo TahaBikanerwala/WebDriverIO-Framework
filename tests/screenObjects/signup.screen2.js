@@ -1,3 +1,4 @@
+import CommonFunctions from "../utilities/common.functions"
 
 const FIRST_NAME = "//android.widget.EditText[@text='First Name']"
 const LAST_NAME = "//android.widget.EditText[@text='Last Name']"
@@ -22,7 +23,9 @@ const NEXT_BUTTON = "~Next"
 const SIGNUP2_SCREEN_TITLE = "~Join Spring Health"
 const SIGNUP2_SCREEN_HEADING = "~Your Account"
 
-class SignUpSreen{
+const commonFunctions = new CommonFunctions()
+
+class SignUpSreen2{
 
     get firstName(){
         
@@ -126,9 +129,12 @@ class SignUpSreen{
     }
 
     async enterEmail(email){
-        await this.emailField.click()
-        await this.emailField.setValue(email)
-        await browser.hideKeyboard();
+        // await this.emailField.click()
+        // await this.emailField.setValue(email)
+        // await browser.hideKeyboard();
+
+        await commonFunctions.enterText(this.emailField, email)
+
     }
 
     async selectDOB(dob){
@@ -139,43 +145,25 @@ class SignUpSreen{
     }
 
     async enterPhoneNumber(number){
-        await this.phoneNumberEditBox.click()
-        await this.phoneNumberEditBox.setValue("")
-        await this.phoneNumberEditBox.setValue(number)
-        await browser.hideKeyboard();
+        
+        await browser.hideKeyboard()
+        await commonFunctions.scroll(this.phoneNumberEditBox)
+        await browser.hideKeyboard()
+        await commonFunctions.enterText(this.phoneNumberEditBox, number)
     }
 
     async enterAddress(street,apt, city, postalcode){
-        await this.streetAddressEditBox.click()
-        await this.streetAddressEditBox.setValue("")
-        await this.streetAddressEditBox.setValue(street)
-        await browser.hideKeyboard();
-
-        await this.aptSuiteEditBox.click()
-        await this.aptSuiteEditBox.setValue("")
-        await this.aptSuiteEditBox.setValue(apt)
-        await browser.hideKeyboard();
-
-        await this.cityDropdown.click()
-        await this.cityDropdown.setValue(city)
-        await browser.hideKeyboard();
-
-        await this.postalCodeEditBox.click()
-        await this.postalCodeEditBox.setValue("")
-        await this.postalCodeEditBox.setValue(postalcode)
-        await browser.hideKeyboard();
+    
+        await commonFunctions.enterText(this.streetAddressEditBox, street)
+        await commonFunctions.enterText(this.aptSuiteEditBox, apt)
+        await commonFunctions.enterText(this.cityDropdown, city)
+        await commonFunctions.enterText(this.postalCodeEditBox, postalcode)
     }
 
     async setPassword(){
-        await this.choosePassword.click()
-        await this.choosePassword.setValue("")
-        await this.choosePassword.setValue("foobarbazz")
-        await browser.hideKeyboard();
-
-        await this.confirmPassword.click()
-        await this.confirmPassword.setValue("")
-        await this.confirmPassword.setValue("foobarbazz")
-        await browser.hideKeyboard();
+    
+        await commonFunctions.enterText(this.choosePassword, "foobarbazz")
+        await commonFunctions.enterText(this.confirmPassword, "foobarbazz")
 
     }
 
@@ -185,10 +173,11 @@ class SignUpSreen{
     }
 
     async clickNext(){
+        await commonFunctions.scroll(this.nextBtn)
         await this.nextBtn.click()
     }
   
 
 }
 
-export default new SignUpSreen();
+export default new SignUpSreen2();

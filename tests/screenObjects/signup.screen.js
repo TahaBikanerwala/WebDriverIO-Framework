@@ -1,4 +1,4 @@
-
+import CommonFunctions from "../utilities/common.functions"
 const FIRST_NAME = "//android.widget.EditText[@text='First Name']"
 const LAST_NAME = "//android.widget.EditText[@text='Last Name']"
 const EMAIL_FIELD = "//android.widget.EditText[@text='youremail@organization.com']"
@@ -13,6 +13,7 @@ const NEXT_BUTTON = "~Next"
 const SIGNUP_SCREEN_TITLE = "~Join Spring Health"
 const SIGNUP_SCREEN_HEADING = "~Let’s find your benefits."
 
+const commonFunctions = new CommonFunctions()
 
 class SignUpSreen{
 
@@ -70,21 +71,31 @@ class SignUpSreen{
     }
 
     async typeFirstName(name){
-        await this.firstName.click()
-        await this.firstName.setValue(name)
-        await browser.hideKeyboard();
+        // await this.firstName.click()
+        // await this.firstName.setValue(name)
+        // await browser.hideKeyboard();
+
+        await commonFunctions.enterText(this.firstName, name)
+
     }
 
     async typeLastName(lastname){
-        await this.lastName.click()
-        await this.lastName.setValue(lastname)
-        await browser.hideKeyboard();
+        // await this.lastName.click()
+        // await this.lastName.setValue(lastname)
+        // await browser.hideKeyboard();
+
+        await commonFunctions.enterText(this.lastName, lastname)
+
+
     }
 
     async typeEmail(email){
-        await this.emailField.click()
-        await this.emailField.setValue(email)
-        await browser.hideKeyboard();
+        // await this.emailField.click()
+        // await this.emailField.setValue(email)
+        // await browser.hideKeyboard();
+
+        await commonFunctions.enterText(this.emailField, email)
+
     }
 
     async selectDOB(dob){

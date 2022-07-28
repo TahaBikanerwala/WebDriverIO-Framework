@@ -12,12 +12,12 @@ class MeOrMePlusChildScreen{
     }
 
     async createAccountForMe(){
-        await browser.pause(3000)
+     
         await this.meOption.click()
     }
 
     async createAccountForMeAndMyChild(){
-        await browser.pause(3000)
+        
         await this.mePlusOption.click()
     }
 

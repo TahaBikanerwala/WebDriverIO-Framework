@@ -23,17 +23,17 @@ class WhoIsSigningUp{
     }
 
     async signUpAsMe(){
-        await browser.pause(5000)
+        // await browser.pause(5000)
        // This works ->  await this.helpButton.click()
         const result = await this.meOption.isDisplayed()
         console.log(await result)
         await this.meOption.click()
-        await browser.pause(5000)
+        // await browser.pause(5000)
         
     }
 
     async signUpAsDependent(){
-        await browser.pause(3000)
+        // await browser.pause(3000)
         await this.mePlusOption.click()
     }
 
