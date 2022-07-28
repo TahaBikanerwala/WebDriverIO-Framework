@@ -8,10 +8,11 @@ const DOB_SWITCH_TO_INPUT = "~Switch to input"
 const DOB_INPUT = "//android.widget.EditText[@index=1]"
 const DOB_OK = "~Ok"
 const DOB_CANCEL = "~Cancel"
-const TERMS_CHECKBOX = "I have read and understood Spring Health's Electronic Communication Agreement"
+const TERMS_CHECKBOX = "~I have read and understood Spring Health's Electronic Communication Agreement"
 const NEXT_BUTTON = "~Next"
 const SIGNUP_SCREEN_TITLE = "~Join Spring Health"
 const SIGNUP_SCREEN_HEADING = "~Let’s find your benefits."
+
 
 class SignUpSreen{
 
@@ -89,7 +90,7 @@ class SignUpSreen{
     async selectDOB(dob){
         await this.dobField.click()
         await this.dobSwitchInput.click()
-        await browser.hideKeyboard()
+        //await browser.hideKeyboard()
         await this.dobInput.setValue(dob)
         await this.dobOk.click()
     }

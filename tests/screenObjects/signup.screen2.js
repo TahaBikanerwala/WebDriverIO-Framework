@@ -17,7 +17,7 @@ const DOB_INPUT = "//android.widget.EditText[@index=1]"
 const DOB_OK = "~Ok"
 const DOB_CANCEL = "~Cancel"
 const HIPAA_CHECKBOX = "~I agree to Spring's Terms of Service, Privacy Policy and HIPAA Privacy Notice."
-const TERMS_CHECKBOX = "I agree to Spring's Informed Consent policy"
+const TERMS_CHECKBOX = "~I agree to Spring's Informed Consent policy"
 const NEXT_BUTTON = "~Next"
 const SIGNUP2_SCREEN_TITLE = "~Join Spring Health"
 const SIGNUP2_SCREEN_HEADING = "~Your Account"
@@ -134,46 +134,47 @@ class SignUpSreen{
     async selectDOB(dob){
         await this.dobField.click()
         await this.dobSwitchInput.click()
-        await browser.hideKeyboard()
         await this.dobInput.setValue(dob)
         await this.dobOk.click()
     }
 
     async enterPhoneNumber(number){
         await this.phoneNumberEditBox.click()
-        await this.phoneNumberEditBox.type("")
-        await this.phoneNumberEditBox.type(number)
+        await this.phoneNumberEditBox.setValue("")
+        await this.phoneNumberEditBox.setValue(number)
         await browser.hideKeyboard();
     }
 
     async enterAddress(street,apt, city, postalcode){
         await this.streetAddressEditBox.click()
-        await this.streetAddressEditBox.type("")
-        await this.streetAddressEditBox.type(street)
+        await this.streetAddressEditBox.setValue("")
+        await this.streetAddressEditBox.setValue(street)
         await browser.hideKeyboard();
 
         await this.aptSuiteEditBox.click()
-        await this.aptSuiteEditBox.type("")
-        await this.aptSuiteEditBox.type(apt)
+        await this.aptSuiteEditBox.setValue("")
+        await this.aptSuiteEditBox.setValue(apt)
         await browser.hideKeyboard();
 
-        await this.cityDropdown.type(city)
+        await this.cityDropdown.click()
+        await this.cityDropdown.setValue(city)
         await browser.hideKeyboard();
 
         await this.postalCodeEditBox.click()
-        await this.postalCodeEditBox.type("")
-        await this.postalCodeEditBox.type(postalcode)
+        await this.postalCodeEditBox.setValue("")
+        await this.postalCodeEditBox.setValue(postalcode)
+        await browser.hideKeyboard();
     }
 
     async setPassword(){
         await this.choosePassword.click()
-        await this.choosePassword.type("")
-        await this.choosePassword.type("foobarbazz")
+        await this.choosePassword.setValue("")
+        await this.choosePassword.setValue("foobarbazz")
         await browser.hideKeyboard();
 
         await this.confirmPassword.click()
-        await this.confirmPassword.type("")
-        await this.confirmPassword.type("foobarbazz")
+        await this.confirmPassword.setValue("")
+        await this.confirmPassword.setValue("foobarbazz")
         await browser.hideKeyboard();
 
     }

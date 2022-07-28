@@ -1,8 +1,8 @@
 
-const ME_OPTION = "~Me I'd like to create an account for myself."
-const ME_PLUS_OPTION = "~Me + child. I'd like to create an account for someone under 18."
+const ME_OPTION = "~Me\nI'd like to create an account for myself."
+const ME_PLUS_OPTION = "~Me + child.\nI'd like to create an account for someone under 18."
 
-class WhoIsSigningUp{
+class MeOrMePlusChildScreen{
     get meOption(){
         return $(ME_OPTION);
     }
@@ -11,7 +11,18 @@ class WhoIsSigningUp{
         return $(ME_PLUS_OPTION);
     }
 
+    async createAccountForMe(){
+        await browser.pause(3000)
+        await this.meOption.click()
+    }
+
+    async createAccountForMeAndMyChild(){
+        await browser.pause(3000)
+        await this.mePlusOption.click()
+    }
+
+
 
 }
 
-export default new WhoIsSigningUp();
+export default new MeOrMePlusChildScreen();
