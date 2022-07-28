@@ -83,11 +83,6 @@ class SignUpSreen{
     }
 
     async selectDOB(dob){
-        //await this.dobField.click()
-       // await this.dobSwitchInput.click()
-        //await browser.hideKeyboard()
-        //await this.dobInput.setValue(dob)
-        //await this.dobOk.click()
         await commonFunctions.enterDOB(this.dobField, this.dobSwitchInput, this.dobInput, this.dobOk, dob)
     }
 
