@@ -71,39 +71,24 @@ class SignUpSreen{
     }
 
     async typeFirstName(name){
-        // await this.firstName.click()
-        // await this.firstName.setValue(name)
-        // await browser.hideKeyboard();
-
         await commonFunctions.enterText(this.firstName, name)
-
     }
 
     async typeLastName(lastname){
-        // await this.lastName.click()
-        // await this.lastName.setValue(lastname)
-        // await browser.hideKeyboard();
-
         await commonFunctions.enterText(this.lastName, lastname)
-
-
     }
 
     async typeEmail(email){
-        // await this.emailField.click()
-        // await this.emailField.setValue(email)
-        // await browser.hideKeyboard();
-
         await commonFunctions.enterText(this.emailField, email)
-
     }
 
     async selectDOB(dob){
-        await this.dobField.click()
-        await this.dobSwitchInput.click()
+        //await this.dobField.click()
+       // await this.dobSwitchInput.click()
         //await browser.hideKeyboard()
-        await this.dobInput.setValue(dob)
-        await this.dobOk.click()
+        //await this.dobInput.setValue(dob)
+        //await this.dobOk.click()
+        await commonFunctions.enterDOB(this.dobField, this.dobSwitchInput, this.dobInput, this.dobOk, dob)
     }
 
     async clickTermsCheckbox(){
@@ -111,6 +96,7 @@ class SignUpSreen{
     }
 
     async clickNext(){
+        await commonFunctions.scroll(this.nextBtn)
         await this.nextBtn.click()
     }
   

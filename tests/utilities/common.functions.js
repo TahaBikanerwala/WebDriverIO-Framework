@@ -23,7 +23,12 @@ class CommonFunctions{
         await browser.pause(3000)
     }
 
-    async enterDOB(dob){
+    async enterDOB(locator1, locator2, locator3, locator4, dob){
+        await locator1.click()
+        await locator2.click()
+        await locator3.setValue(dob)
+        await locator4.click()
+
         //empty for now since multiple elements needs to be passed.
     }
 }
